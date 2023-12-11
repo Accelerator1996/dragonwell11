@@ -63,7 +63,10 @@ final class DCmdConfigure extends AbstractDCmd {
     public String execute
     (
             boolean verbose,
+<<<<<<< HEAD
             Boolean onVMStart,
+=======
+>>>>>>> merge_repo/master
             String repositoryPath,
             String dumpPath,
             Integer stackDepth,
@@ -117,9 +120,15 @@ final class DCmdConfigure extends AbstractDCmd {
         if (dumpPath != null)  {
             Options.setDumpPath(new SafePath(dumpPath));
             Logger.log(LogTag.JFR, LogLevel.INFO, "Emergency dump path set to " + dumpPath);
+<<<<<<< HEAD
             if (verbose) {
                 printDumpPath();
             }
+=======
+           if (verbose) {
+               printDumpPath();
+           }
+>>>>>>> merge_repo/master
             updated = true;
         }
 
@@ -185,6 +194,7 @@ final class DCmdConfigure extends AbstractDCmd {
             }
             updated = true;
         }
+<<<<<<< HEAD
 
         if (objectAllocationsSamplingInterval != null) {
             Options.setObjectAllocationsSamplingInterval(objectAllocationsSamplingInterval);
@@ -208,6 +218,11 @@ final class DCmdConfigure extends AbstractDCmd {
             return "";
         }
 
+=======
+        if (!verbose) {
+            return "";
+        }
+>>>>>>> merge_repo/master
         if (!updated) {
             println("Current configuration:");
             println();

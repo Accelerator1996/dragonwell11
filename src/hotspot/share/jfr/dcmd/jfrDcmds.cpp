@@ -558,8 +558,11 @@ JfrConfigureFlightRecorderDCmd::JfrConfigureFlightRecorderDCmd(outputStream* out
   _memory_size("memorysize", "Overall memory size, ", "MEMORY SIZE", false, "10m"),
   _max_chunk_size("maxchunksize", "Size of an individual disk chunk", "MEMORY SIZE", false, "12m"),
   _sample_threads("samplethreads", "Activate Thread sampling", "BOOLEAN", false, "true"),
+<<<<<<< HEAD
   _sample_object_allocations("sampleobjectallocations","object allocations sampling enable / disable", "BOOLEAN", false, "false"),
   _object_allocations_sampling_interval("objectallocationssamplinginterval", "object allocations sampling interval", "JLONG", false, "1024"),
+=======
+>>>>>>> merge_repo/master
   _verbose(true) {
   _dcmdparser.add_dcmd_option(&_repository_path);
   _dcmdparser.add_dcmd_option(&_dump_path);
@@ -661,7 +664,11 @@ void JfrConfigureFlightRecorderDCmd::execute(DCmdSource source, TRAPS) {
 
   static const char klass[] = "jdk/jfr/internal/dcmd/DCmdConfigure";
   static const char method[] = "execute";
+<<<<<<< HEAD
   static const char signature[] = "(ZLjava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;"
+=======
+  static const char signature[] = "(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/Integer;"
+>>>>>>> merge_repo/master
     "Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;"
     "Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;)Ljava/lang/String;";
 
@@ -670,7 +677,10 @@ void JfrConfigureFlightRecorderDCmd::execute(DCmdSource source, TRAPS) {
 
   // params
   execute_args.push_int(_verbose ? 1 : 0);
+<<<<<<< HEAD
   execute_args.push_jobject(on_vm_start);
+=======
+>>>>>>> merge_repo/master
   execute_args.push_jobject(repository_path);
   execute_args.push_jobject(dump_path);
   execute_args.push_jobject(stack_depth);

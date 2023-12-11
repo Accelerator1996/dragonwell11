@@ -28,12 +28,21 @@ public class TestOptionsWithLocale {
         }
     }
 
+<<<<<<< HEAD
     public static void main(String... args) throws Exception {
         OutputAnalyzer output = ProcessTools.executeTestJvm(
+=======
+    public static void main(String... args) throws IOException {
+        ProcessBuilder pb = ProcessTools.createTestJvm(
+>>>>>>> merge_repo/master
                 "-Duser.country=DE",
                 "-Duser.language=de",
                 "-XX:FlightRecorderOptions:stackdepth=128",
                 PrintDate.class.getName());
+<<<<<<< HEAD
+=======
+        OutputAnalyzer output = new OutputAnalyzer(pb.start());
+>>>>>>> merge_repo/master
         output.shouldContain("01.01.2020, 00:00:00");
     }
 }

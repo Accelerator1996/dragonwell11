@@ -406,12 +406,15 @@ bool JfrOptionSet::configure(TRAPS) {
   configure._sample_threads.set_is_set(_dcmd_sample_threads.is_set());
   configure._sample_threads.set_value(_dcmd_sample_threads.value());
 
+<<<<<<< HEAD
   configure._sample_object_allocations.set_is_set(_dcmd_sampleobjectallocations.is_set());
   configure._sample_object_allocations.set_value(_dcmd_sampleobjectallocations.value());
 
   configure._object_allocations_sampling_interval.set_is_set(_dcmd_objectallocationssamplinginterval.is_set());
   configure._object_allocations_sampling_interval.set_value(_dcmd_objectallocationssamplinginterval.value());
 
+=======
+>>>>>>> merge_repo/master
   configure.set_verbose(false);
   configure.execute(DCmd_Source_Internal, THREAD);
 

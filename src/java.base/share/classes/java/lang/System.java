@@ -60,9 +60,13 @@ import java.util.function.Supplier;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
+<<<<<<< HEAD
 import com.alibaba.rcm.internal.AbstractResourceContainer;
 import com.alibaba.wisp.engine.WispEngine;
 import com.alibaba.wisp.engine.WispTask;
+=======
+import jdk.internal.logger.LoggerFinderLoader.TemporaryLoggerFinder;
+>>>>>>> merge_repo/master
 import jdk.internal.util.StaticProperty;
 import jdk.internal.module.ModuleBootstrap;
 import jdk.internal.module.ServicesCatalog;
@@ -1622,13 +1626,16 @@ public final class System {
             // We do not need to synchronize: LoggerFinderLoader will
             // always return the same instance, so if we don't have it,
             // just fetch it again.
-            if (service == null) {
+            LoggerFinder finder = service;
+            if (finder == null) {
                 PrivilegedAction<LoggerFinder> pa =
                         () -> LoggerFinderLoader.getLoggerFinder();
-                service = AccessController.doPrivileged(pa, null,
+                finder = AccessController.doPrivileged(pa, null,
                         LOGGERFINDER_PERMISSION);
+                if (finder instanceof TemporaryLoggerFinder) return finder;
+                service = finder;
             }
-            return service;
+            return finder;
         }
 
     }

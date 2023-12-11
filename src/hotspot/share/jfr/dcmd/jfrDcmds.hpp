@@ -155,8 +155,11 @@ class JfrConfigureFlightRecorderDCmd : public DCmdWithParser {
   DCmdArgument<MemorySizeArgument> _memory_size;
   DCmdArgument<MemorySizeArgument> _max_chunk_size;
   DCmdArgument<bool>  _sample_threads;
+<<<<<<< HEAD
   DCmdArgument<bool>  _sample_object_allocations;
   DCmdArgument<jlong> _object_allocations_sampling_interval;
+=======
+>>>>>>> merge_repo/master
   bool _verbose;
 
  public:
